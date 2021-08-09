@@ -1,0 +1,370 @@
+@font-face {
+  font-family: abster ;
+  src: url(/myWebsite/font/abster-webfont.woff) format('woff');
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  width: 100%;
+  height:100%;
+}
+/* 배경화면 설정*/
+.container{
+  width: 100vw;
+  margin: auto;
+  background:repeat linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(/myWebsite/images/background1.jpg)
+}
+
+/*상단 nav, 중앙정렬*/ 
+.container .header {
+  width: 80%;
+  height: 80px;
+  margin:0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:2px solid white;
+}
+
+
+/*colect(로고) 문구 설정*/
+.container .header h1 a{
+  text-decoration: none;
+  color: white;
+  font-family: abster;
+}
+.container .header h1 sub{
+  font-size: 6px;
+  font-family: abster;
+}
+
+.contents{
+  width: 100%;
+  height: 1200px;
+  background-color: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8));
+}
+
+/* start페이지 안내문구 설정*/
+.contents .hero{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* start페이지 h2설정*/
+.contents .hero h2{
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+/* start페이지 p설정 */
+.contents .hero p{
+  font-size: 22px;
+}
+/*버튼 설정*/
+.contents .hero button{
+  background: none;
+  border: 2px solid darkseagreen;
+  padding: 10px 40px;
+  border-radius: 20px;
+  margin-top: 30px;
+  outline: none;
+  cursor: pointer;
+  transition: all .4s;
+}
+/*버튼에 마우스 올렸을 때 색변화*/
+.contents .hero button:hover{
+  background-color: darkslategray;
+}
+/* 링크 색 변환*/
+.contents .hero a{
+  text-decoration: none;
+  color: white;
+}
+/*----------------------------------메뉴 아이콘, 사이드 바----------------------------*/
+input[id ="menuicon"]{
+  display: none;
+}
+input[id="menuicon"] + label{
+  display: block;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[id="menuicon"] + label span{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 30px;
+  background:white;
+  transition: all .5s;
+}
+/*누르기전 span*/
+input[id="menuicon"] + label span:nth-child(1){
+  top:0;
+}
+input[id="menuicon"] + label span:nth-child(2){
+  top:50%;
+  transform: translateY(-50%);
+}
+input[id="menuicon"] + label span:nth-child(3){
+  bottom: 0;
+}
+/*체크박스가 선택된 후 span*/
+input[id="menuicon"]:checked + label span:nth-child(1){
+  top:50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+input[id="menuicon"]:checked + label span:nth-child(2){
+  opacity: 0;
+}
+input[id="menuicon"]:checked + label span:nth-child(3){
+  bottom:50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+ /*사이드바 튀어나오게 만듬*/
+div[class="sidebar"] {
+  width: 20%;
+  height: 100%;
+  background: #222;
+  position: fixed;
+  top: 0;
+  right: -20%;
+  z-index: 1;
+  transition: all .5s;
+}
+input[id="menuicon"]:checked + label + div{right:0;}
+
+input[id="menuicon"]:checked + label{
+  z-index: 2;
+  right: 20%;
+}
+.sidebar ul li {
+  margin-top: 100px;
+  margin-left: 80px;
+  padding-bottom: 10px;
+  list-style:none;
+  
+  border-bottom: 1px solid white;
+}
+.sidebar ul li a{
+  text-decoration: none;
+  color: white;
+}
+/*-----------------------------그리드-------------------------------------*/
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(250px, auto);
+  margin-top: 25px;
+  margin-left:10%;
+  margin-right: 10%;
+}
+.one {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  background-color:rgb(251, 194, 044);
+}
+.two {
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+  background-color:rgb(240, 020, 134);
+}
+.three {
+  grid-column: 1;
+  grid-row: 2 / 5;
+  background-color:rgb(160, 103, 173);
+}
+.four {
+  grid-column: 3;
+  grid-row: 3;
+  background-color:rgb(070, 163, 210);
+}
+.five {
+  grid-column: 2;
+  grid-row: 4;
+  background-color:rgb(140, 227, 061);
+}
+.six {
+  grid-column: 3;
+  grid-row: 4;
+  background-color:rgb(251, 194, 044);
+}
+/*------------------------------------로그인---------------------------------------*/
+
+/* 로그인 박스 설정*/
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: transparent;
+  border-radius: 10px;
+  border: 3px solid white;
+}
+
+/*로그인*/
+.center h1{
+  text-align: center;
+  padding: 20px 0 ;
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+/*로그인 폼 박스 설정*/
+.center form{
+  padding:0 40px;
+  box-sizing: border-box;
+}
+/*아이디 텍스트 필드 설정*/
+form .txt_field{
+  position: relative;
+  border-bottom:2px solid white ;
+  margin:30px 0;
+}
+
+/*아이디 비밀번호칸 설정*/
+.txt_field input{
+  width:100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+}
+
+/*아이디 비밀번호 위치*/
+.txt_field label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform:  translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+}
+.txt_field span::before{
+  content:'';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #2691d9;  
+  transition: .5s;
+}
+.txt_field input:focus~label,
+.txt_field input:valid~label{
+  top: -5px;
+  color:#2691d9;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~span::before{
+  width: 100%;
+}
+.pass{
+  margin: -5px 0 20px 5px;
+  color: #a6a6a6;
+  cursor:pointer;
+  text-align: center;
+  
+}
+.pass:hover{
+  text-decoration: underline;
+}
+
+input[type="submit"]{
+  width: 100%;
+  height: 50px;
+  border: 2px solid;
+  background: #2691d9;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+input[type="submit"]:hover{
+  border-color: #2691d9;
+  transition: .5s;
+}
+.signup_link{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+}
+.signup_link a{
+  color: #2691d9;
+  text-decoration: none;
+  margin-left: 5px;
+}
+.signup_link a:hover{
+  text-decoration: underline;
+}
+
+/*------------------------------------footer영역-------------------------------------*/
+
+footer{
+  width: 100vw;
+  height: auto;
+  background-color:#323232;
+  clear: left;
+  padding-top: 10px;
+  border-top: 3px solid white;
+  color: white;
+}
+
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.footer-content h3{
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 3rem;
+  font-family: abster;
+}
+.footer-content p{
+  max-width: 500px;
+  margin: 10px auto;
+  font-size: 14px;
+}
+.socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px auto;
+}
+.socials li{
+  margin: 0 10px;
+}
+.socials a{
+  text-decoration: none;
+  color: white;
+}
+.socials a i{
+  font-size: 1.1rem;
+  transition: color .4s ease;
+}
+.socials a:hover i{
+  color: aqua;
+}
